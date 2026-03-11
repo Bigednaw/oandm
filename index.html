@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O&M Professionals | Home</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SLIDER -->
+  <div class="slider" id="slider">
+
+    <div class="slide active">
+      <div class="slide-bg" style="background-image:url('images/slide1.jpg')"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <p class="slide-eyebrow">Operations &amp; Maintenance</p>
+        <h1>Built on <span>Precision.</span><br/>Driven by <span>Results.</span></h1>
+        <p class="slide-sub">Professional consulting, maintenance, and project management services tailored for complex operations.</p>
+        <div class="slide-btns">
+          <a href="services.html" class="btn-primary">Our Services</a>
+          <a href="contact.html" class="btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-bg" style="background-image:url('images/slide2.jpg')"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <p class="slide-eyebrow">Expert Consulting</p>
+        <h1>Strategic <span>Solutions</span><br/>for Every <span>Challenge.</span></h1>
+        <p class="slide-sub">We bring decades of experience to every project, from initial planning to final execution.</p>
+        <div class="slide-btns">
+          <a href="projects.html" class="btn-primary">View Projects</a>
+          <a href="about.html" class="btn-outline">About Us</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-bg" style="background-image:url('images/slide3.jpg')"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <p class="slide-eyebrow">Project Management</p>
+        <h1>On Time.<br/><span>On Budget.</span><br/>Every Time.</h1>
+        <p class="slide-sub">Delivering complex projects with uncompromising standards and transparent communication.</p>
+        <div class="slide-btns">
+          <a href="contact.html" class="btn-primary">Start a Project</a>
+          <a href="projects.html" class="btn-outline">Our Work</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="slider-arrow prev" id="prevSlide">&#8592;</button>
+    <button class="slider-arrow next" id="nextSlide">&#8594;</button>
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+          <p>Consulting · Maintenance Services · Project Management</p>
+        </div>
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> O&amp;M Professionals. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
