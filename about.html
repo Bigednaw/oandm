@@ -6,6 +6,13 @@
   <title>About | O&M Professionals</title>
   <link rel="stylesheet" href="css/style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* Animated stat numbers */
+    .about-stats { display: flex; gap: 2rem; margin: 2rem 0; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--accent); display:block; }
+    .stat-label { font-size: .9rem; color: var(--muted); display:block; margin-top: .25rem; }
+  </style>
 </head>
 <body>
 
@@ -49,7 +56,7 @@
             </div>
           </div>
           <div class="about-badge">
-            <span class="badge-num">15+</span>
+            <span class="badge-num">10+</span>
             <span class="badge-text">Years of Excellence</span>
           </div>
         </div>
@@ -62,9 +69,9 @@
           <p class="body-text">We believe great work starts with great relationships. That's why we invest the time to truly understand your operations, your goals, and your constraints — then build solutions that fit.</p>
 
           <div class="about-stats">
-            <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Projects Completed</span></div>
-            <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Clients Served</span></div>
-            <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Commitment</span></div>
+            <div class="stat"><span class="stat-num" data-target="40">0</span><span class="stat-label">Projects Completed</span></div>
+            <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">Clients Served</span></div>
+            <div class="stat"><span class="stat-num" data-target="100">0</span><span class="stat-label">Commitment</span></div>
           </div>
           <a href="contact.html" class="btn-primary">Work With Us</a>
         </div>
@@ -136,5 +143,27 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- Animated Stats Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const stats = document.querySelectorAll('.stat-num');
+      stats.forEach(stat => {
+        const target = parseInt(stat.dataset.target);
+        let count = 0;
+        const isPercent = stat.dataset.target === "100";
+        const isPlus = stat.dataset.target !== "100";
+        const increment = Math.ceil(target / 100);
+
+        const interval = setInterval(() => {
+          count += increment;
+          if (count >= target) count = target;
+          stat.textContent = isPercent ? count + '%' : count + (isPlus ? '+' : '');
+          if(count >= target) clearInterval(interval);
+        }, 20);
+      });
+    });
+  </script>
+
 </body>
 </html>
