@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | O&M Professionals</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <p class="section-eyebrow">What We Do</p>
+      <h1>Our <span>Services</span></h1>
+      <p>Comprehensive solutions across consulting, maintenance, and project management — delivered with precision.</p>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="container">
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M8 40V20L24 8L40 20V40H28V28H20V40H8Z" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Consulting</h3>
+          <p>Strategic advisory services that help organizations optimize operations, reduce costs, and build long-term resilience. We analyze, advise, and implement.</p>
+          <ul class="service-list">
+            <li>Operational assessments</li>
+            <li>Process optimization</li>
+            <li>Risk management</li>
+            <li>Regulatory compliance</li>
+            <li>Cost reduction strategies</li>
+          </ul>
+        </div>
+
+        <div class="service-card featured">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M6 36L14 22L22 28L30 16L38 22L44 10" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="14" cy="22" r="2.5" fill="currentColor" stroke="none"/>
+              <circle cx="22" cy="28" r="2.5" fill="currentColor" stroke="none"/>
+              <circle cx="30" cy="16" r="2.5" fill="currentColor" stroke="none"/>
+              <circle cx="38" cy="22" r="2.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <h3>Maintenance Services</h3>
+          <p>Preventive, corrective, and predictive maintenance programs designed to maximize uptime, extend asset life, and minimize unplanned outages.</p>
+          <ul class="service-list">
+            <li>Preventive maintenance programs</li>
+            <li>Corrective maintenance</li>
+            <li>Predictive maintenance</li>
+            <li>Asset lifecycle management</li>
+            <li>Maintenance audits &amp; reporting</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="6" y="6" width="16" height="16" rx="1"/>
+              <rect x="26" y="6" width="16" height="16" rx="1"/>
+              <rect x="6" y="26" width="16" height="16" rx="1"/>
+              <rect x="26" y="26" width="16" height="16" rx="1"/>
+            </svg>
+          </div>
+          <h3>Project Management</h3>
+          <p>End-to-end project delivery from scoping and scheduling to execution and closeout. We keep your projects on track, on budget, and on time.</p>
+          <ul class="service-list">
+            <li>Project planning &amp; scheduling</li>
+            <li>Budget management</li>
+            <li>Stakeholder communication</li>
+            <li>Quality assurance</li>
+            <li>Closeout &amp; handover</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- CTA banner -->
+      <div style="margin-top: 5rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Ready to get started?</h3>
+          <p style="color: var(--muted);">Let's talk about what O&amp;M Professionals can do for your organization.</p>
+        </div>
+        <a href="contact.html" class="btn-primary">Contact Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+          <p>Consulting · Maintenance Services · Project Management</p>
+        </div>
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> O&amp;M Professionals. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

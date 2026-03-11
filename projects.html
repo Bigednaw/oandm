@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O&M Professionals | Projects</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* Per-card image slider */
+    .card-slider { position:relative; aspect-ratio:16/9; overflow:hidden; background:var(--bg4); }
+    .card-track   { display:flex; height:100%; transition:transform .45s ease; }
+    .card-slide   { min-width:100%; height:100%; flex-shrink:0; display:flex; align-items:center; justify-content:center; position:relative; background:var(--bg4); }
+    .card-slide-bg{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .5s; }
+    .project-card:hover .card-slide-bg { transform:scale(1.05); }
+    .card-slide-num { font-family:'Bebas Neue',sans-serif; font-size:3.5rem; color:rgba(200,168,75,.22); position:relative; z-index:1; }
+    .card-dots-wrap { position:absolute; bottom:.55rem; left:50%; transform:translateX(-50%); display:flex; gap:.4rem; z-index:5; }
+    .cdot { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,.3); border:none; padding:0; cursor:pointer; transition:all .2s; }
+    .cdot.active { background:var(--accent); transform:scale(1.35); }
+    .card-arr { position:absolute; top:50%; transform:translateY(-50%); z-index:5; background:rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.15); color:#fff; width:28px; height:28px; border-radius:50%; font-size:.75rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; opacity:0; }
+    .project-card:hover .card-arr { opacity:1; }
+    .card-arr:hover { background:var(--accent); color:#0a0a0b; border-color:var(--accent); }
+    .card-prev { left:.5rem; } .card-next { right:.5rem; }
+    /* Read More */
+    .proj-desc { font-size:.9rem; color:var(--muted); line-height:1.65; overflow:hidden; max-height:3.6em; transition:max-height .4s ease; margin-bottom:.5rem; }
+    .proj-desc.open { max-height:800px; }
+    .rmb { background:none; border:none; color:var(--accent); font-family:'Outfit',sans-serif; font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; padding:.3rem 0 .8rem; display:inline-flex; align-items:center; gap:.3rem; transition:color .2s; }
+    .rmb:hover { color:var(--accent2); }
+    .rmb svg { width:12px; height:12px; transition:transform .3s; }
+    .rmb.open svg { transform:rotate(180deg); }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <p class="section-eyebrow">Our Work</p>
+      <h1>Featured <span>Projects</span></h1>
+      <p>A selection of projects that showcase our capabilities and commitment to quality.</p>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-grid" id="projectsGrid"></div>
+      <div style="margin-top:5rem;text-align:center">
+        <p style="color:var(--muted);margin-bottom:1.5rem">Have a project in mind? Let's discuss how we can help.</p>
+        <a href="contact.html" class="btn-primary">Start a Conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+          <p>Consulting · Maintenance Services · Project Management</p>
+        </div>
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li>
+          <li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom"><p>&copy; <span id="year"></span> O&amp;M Professionals. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  // ── PROJECT DATA ─────────────────────────────────────────
+  // Edit titles, descriptions, tags, and image arrays here.
+  // Images go in the /images/ folder. Each project can have 1–5 images.
+  var PROJECTS = [
+    { id:1, tag:'Consulting', title:'Operational Efficiency Overhaul',
+      short:'Comprehensive review and restructuring of operational processes resulting in a 30% reduction in overhead costs.',
+      full:'Our team conducted a thorough operational assessment spanning 12 weeks, interviewing key stakeholders, mapping all core workflows, and identifying redundancies. We restructured the procurement and logistics processes, introduced automated reporting tools, and realigned team responsibilities to eliminate bottlenecks. The result: a 30% reduction in overhead costs within the first 6 months, and a leaner organization that continues to improve year over year.',
+      imgs:['project1a.jpg','project1b.jpg','project1c.jpg'] },
+    { id:2, tag:'Maintenance', title:'Preventive Maintenance Program',
+      short:'Facility-wide preventive maintenance program that reduced unplanned downtime by over 45% within the first year.',
+      full:'We designed and implemented a comprehensive preventive maintenance program across a 200,000 sq ft manufacturing facility. The scope included asset tagging, maintenance scheduling using a CMMS platform, technician training, and KPI dashboards for real-time monitoring. Unplanned downtime dropped by 45% in year one, and overall equipment effectiveness (OEE) improved by 22%. The program is now being rolled out to two additional facilities.',
+      imgs:['project2a.jpg','project2b.jpg'] },
+    { id:3, tag:'Project Management', title:'Multi-Phase Infrastructure Upgrade',
+      short:'Complex infrastructure upgrade delivered on schedule and 8% under budget across 18 months.',
+      full:'This multi-phase infrastructure upgrade involved coordinating over 14 contractors, securing regulatory approvals across three jurisdictions, and managing a $6.2M budget. Our project management team provided full oversight from design review through commissioning. Weekly reporting, earned value analysis, and proactive risk management kept the project on track despite two significant scope changes mid-execution. Final delivery was on time and 8% under the approved budget.',
+      imgs:['project3a.jpg','project3b.jpg','project3c.jpg'] },
+    { id:4, tag:'Consulting', title:'Regulatory Compliance Review',
+      short:'Full regulatory compliance review identifying key gaps and implementing corrective action plans.',
+      full:'Following a near-miss audit, this manufacturing client engaged us to perform an end-to-end regulatory compliance review. We assessed their operations against applicable environmental, health & safety, and industry-specific standards. The review identified 23 non-conformances, ranging from documentation gaps to procedural deficiencies. We developed a prioritized corrective action plan and supported implementation over a 6-month period, resulting in a clean audit the following year.',
+      imgs:['project4a.jpg','project4b.jpg'] },
+    { id:5, tag:'Maintenance', title:'Asset Lifecycle Management',
+      short:'Strategy extending equipment service life by an average of 6 years across the fleet.',
+      full:'We developed a comprehensive asset lifecycle management strategy for a regional utility with over 800 assets. The project began with a full condition assessment, followed by an economic analysis of repair vs. replace decisions for each asset class. We introduced a tiered maintenance approach and a capital planning framework to guide future investment. On average, the strategy extended equipment service life by 6 years and reduced the 10-year capital replacement forecast by $4.1M.',
+      imgs:['project5a.jpg','project5b.jpg','project5c.jpg'] },
+    { id:6, tag:'Project Management', title:'Facility Expansion & Commissioning',
+      short:'Full expansion and commissioning of a 50,000 sq ft facility from groundbreaking through operational handover.',
+      full:'We managed the complete expansion of a 50,000 sq ft operations facility, overseeing civil, structural, mechanical, and electrical scopes simultaneously. The project required careful phasing to maintain 80% operational capacity throughout construction. Our team managed design coordination, contractor tendering, construction supervision, and systems commissioning. The facility was handed over on the target date, fully operational, with all systems documented and staff trained.',
+      imgs:['project6a.jpg','project6b.jpg'] },
+  ];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var grid = document.getElementById('projectsGrid');
+
+    PROJECTS.forEach(function(p) {
+      // Build slide HTML
+      var slidesHTML = p.imgs.map(function(img, i) {
+        return '<div class="card-slide">' +
+          '<div class="card-slide-bg" style="background-image:url(\'images/' + img + '\')"></div>' +
+          '<div class="card-slide-num">' + String(i+1).padStart(2,'0') + '</div>' +
+          '</div>';
+      }).join('');
+
+      var dotsHTML = p.imgs.length > 1 ? p.imgs.map(function(_, i) {
+        return '<button class="cdot' + (i===0?' active':'') + '" data-i="' + i + '"></button>';
+      }).join('') : '';
+
+      var arrowsHTML = p.imgs.length > 1
+        ? '<button class="card-arr card-prev">&#8592;</button><button class="card-arr card-next">&#8594;</button>'
+        : '';
+
+      var card = document.createElement('div');
+      card.className = 'project-card fade-in';
+      card.innerHTML =
+        '<div class="card-slider">' +
+          '<div class="card-track">' + slidesHTML + '</div>' +
+          arrowsHTML +
+          (dotsHTML ? '<div class="card-dots-wrap">' + dotsHTML + '</div>' : '') +
+        '</div>' +
+        '<div class="project-info">' +
+          '<span class="project-tag">' + p.tag + '</span>' +
+          '<h3>' + p.title + '</h3>' +
+          '<p class="proj-desc" id="pd-' + p.id + '">' + p.full + '</p>' +
+          '<button class="rmb" id="rmb-' + p.id + '">' +
+            'Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>' +
+          '</button>' +
+        '</div>';
+
+      grid.appendChild(card);
+
+      // Mini slider logic
+      if (p.imgs.length > 1) {
+        var track = card.querySelector('.card-track');
+        var dots  = card.querySelectorAll('.cdot');
+        var count = p.imgs.length;
+        var cur = 0, autoT;
+
+        function move(n) {
+          cur = (n + count) % count;
+          track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+          dots.forEach(function(d, i) { d.classList.toggle('active', i === cur); });
+          clearInterval(autoT);
+          autoT = setInterval(function() { move(cur + 1); }, 3500);
+        }
+
+        dots.forEach(function(d, i) {
+          d.addEventListener('click', function(e) { e.stopPropagation(); move(i); });
+        });
+        card.querySelector('.card-prev').addEventListener('click', function(e) { e.stopPropagation(); move(cur - 1); });
+        card.querySelector('.card-next').addEventListener('click', function(e) { e.stopPropagation(); move(cur + 1); });
+
+        // Touch swipe
+        var sliderEl = card.querySelector('.card-slider');
+        var tx = 0;
+        sliderEl.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+        sliderEl.addEventListener('touchend', function(e) {
+          var d = tx - e.changedTouches[0].clientX;
+          if (Math.abs(d) > 40) move(d > 0 ? cur + 1 : cur - 1);
+        });
+
+        autoT = setInterval(function() { move(cur + 1); }, 3500);
+      }
+
+      // Read More toggle
+      var descEl = document.getElementById('pd-' + p.id);
+      var rmbEl  = document.getElementById('rmb-' + p.id);
+      rmbEl.addEventListener('click', function() {
+        var isOpen = descEl.classList.toggle('open');
+        rmbEl.classList.toggle('open', isOpen);
+        rmbEl.innerHTML = (isOpen ? 'Read Less' : 'Read More') +
+          ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>';
+      });
+    });
+  });
+  </script>
+</body>
+</html>
