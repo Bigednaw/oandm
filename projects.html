@@ -1,169 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | O&M Professionals</title>
-  <link rel="stylesheet" href="css/style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    /* Animated stat numbers */
-    .about-stats { display: flex; gap: 2rem; margin: 2rem 0; }
-    .stat { text-align: center; }
-    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--accent); display:block; }
-    .stat-label { font-size: .9rem; color: var(--muted); display:block; margin-top: .25rem; }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects | O&M Professionals</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  /* Projects Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .project-card {
+    background:#1a1a1a;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.3);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    font-family:'Outfit',sans-serif;
+  }
+  .project-info {
+    padding:1rem;
+  }
+  .project-tag {
+    font-weight:600;
+    color:#c8a84b;
+    font-size:.85rem;
+    text-transform:uppercase;
+  }
+  .proj-desc {
+    font-size:.9rem;
+    color:#ccc;
+    line-height:1.5;
+    max-height:3em;
+    overflow:hidden;
+    transition:max-height .4s ease;
+    margin-bottom:.5rem;
+  }
+  .proj-desc.open { max-height:800px; }
+
+  .rmb {
+    background:none;
+    border:none;
+    color:#c8a84b;
+    font-weight:600;
+    font-size:.78rem;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:.3rem;
+    transition:color .2s;
+  }
+  .rmb:hover { color:#e6d07b; }
+  .rmb svg { width:12px; height:12px; transition:transform .3s; }
+  .rmb.open svg { transform:rotate(180deg); }
+
+  /* Slider */
+  .card-slider { position:relative; aspect-ratio:16/9; overflow:hidden; background:#111; }
+  .card-track { display:flex; height:100%; transition:transform .5s ease; }
+  .card-slide { min-width:100%; height:100%; flex-shrink:0; display:flex; align-items:center; justify-content:center; position:relative; }
+  .card-slide-bg { position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .5s; }
+  .card-slide-num { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:rgba(200,168,75,.22); position:absolute; bottom:5px; right:10px; z-index:1; }
+</style>
 </head>
 <body>
 
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-      <ul class="nav-links" id="navLinks">
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <p class="section-eyebrow">Our Work</p>
+    <h1>Featured <span>Projects</span></h1>
+    <p>A selection of projects that showcase our capabilities and commitment to quality.</p>
+  </div>
+</section>
+
+<section class="projects-section">
+  <div class="container">
+    <div class="projects-grid" id="projectsGrid"></div>
+
+    <div style="margin-top: 5rem; text-align: center;">
+      <p style="color: #ccc; margin-bottom: 1.5rem;">Have a project in mind? Let's discuss how we can help.</p>
+      <a href="contact.html" class="btn-primary">Start a Conversation</a>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+        <p>Consulting · Maintenance Services · Project Management</p>
+      </div>
+      <ul class="footer-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
-  </nav>
-
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="container page-hero-inner">
-      <p class="section-eyebrow">Who We Are</p>
-      <h1>About <span>Us</span></h1>
-      <p>A team of dedicated professionals committed to excellence in every engagement.</p>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> O&amp;M Professionals. All rights reserved.</p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ABOUT CONTENT -->
-  <section class="about-section">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img-col">
-          <div class="about-img-box">
-            <img src="images/about.jpg" alt="About O&M Professionals" onerror="this.style.display='none'"/>
-            <div class="about-img-placeholder">
-              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="120" height="120" fill="#16161a"/>
-                <path d="M20 90 L45 55 L62 72 L80 45 L100 90Z" fill="none" stroke="#c8a84b" stroke-width="2" stroke-linejoin="round"/>
-                <circle cx="36" cy="36" r="10" fill="none" stroke="#c8a84b" stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
-          <div class="about-badge">
-            <span class="badge-num">10+</span>
-            <span class="badge-text">Years of Excellence</span>
-          </div>
-        </div>
+<script>
+// PROJECT DATA (6 projects)
+var PROJECTS = [
+  { id:1, tag:'Consulting', title:'Operational Efficiency Overhaul',
+    desc:'Comprehensive review and restructuring of operational processes for a mid-size industrial client, resulting in a 30% reduction in overhead costs.',
+    imgs:['project1a.jpg','project1b.jpg','project1c.jpg'] },
+  { id:2, tag:'Maintenance', title:'Preventive Maintenance Program',
+    desc:'Designed and implemented a facility-wide preventive maintenance program that reduced unplanned downtime by over 45% within the first year.',
+    imgs:['project2a.jpg','project2b.jpg'] },
+  { id:3, tag:'Project Management', title:'Multi-Phase Infrastructure Upgrade',
+    desc:'Led a complex, multi-phase infrastructure upgrade for a regional utility, delivered on schedule and 8% under budget across 18 months.',
+    imgs:['project3a.jpg','project3b.jpg','project3c.jpg'] },
+  { id:4, tag:'Consulting', title:'Regulatory Compliance Review',
+    desc:'Guided a manufacturing client through a full regulatory compliance review, identifying key gaps and implementing corrective action plans.',
+    imgs:['project4a.jpg','project4b.jpg'] },
+  { id:5, tag:'Maintenance', title:'Asset Lifecycle Management',
+    desc:'Developed a comprehensive asset lifecycle management strategy extending equipment service life by an average of 6 years across the fleet.',
+    imgs:['project5a.jpg','project5b.jpg','project5c.jpg'] },
+  { id:6, tag:'Project Management', title:'Facility Expansion & Commissioning',
+    desc:'Managed the full expansion and commissioning of a 50,000 sq ft facility from groundbreaking through operational handover.',
+    imgs:['project6a.jpg','project6b.jpg'] }
+];
 
-        <div>
-          <p class="section-eyebrow">Our Story</p>
-          <h2 class="section-title">A Team of Dedicated <span>Professionals</span></h2>
-          <p class="body-text">O&amp;M Professionals is a full-service consulting and operations firm committed to delivering excellence across every discipline. Our team combines deep technical expertise with practical, real-world experience to solve the challenges that matter most to our clients.</p>
-          <p class="body-text">From day-to-day maintenance operations to complex multi-phase project management, we bring structure, accountability, and measurable results to everything we do. Our approach is built on transparency, precision, and a relentless focus on outcomes.</p>
-          <p class="body-text">We believe great work starts with great relationships. That's why we invest the time to truly understand your operations, your goals, and your constraints — then build solutions that fit.</p>
+document.addEventListener('DOMContentLoaded', function() {
+  var grid = document.getElementById('projectsGrid');
 
-          <div class="about-stats">
-            <div class="stat"><span class="stat-num" data-target="40">0</span><span class="stat-label">Projects Completed</span></div>
-            <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">Clients Served</span></div>
-            <div class="stat"><span class="stat-num" data-target="100">0</span><span class="stat-label">Commitment</span></div>
-          </div>
-          <a href="contact.html" class="btn-primary">Work With Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  PROJECTS.forEach(function(p){
+    // Build slides
+    var slidesHTML = p.imgs.map(function(img,j){
+      return '<div class="card-slide"><div class="card-slide-bg" style="background-image:url(\'images/'+img+'\')"></div><div class="card-slide-num">'+String(j+1).padStart(2,'0')+'</div></div>';
+    }).join('');
 
-  <!-- VALUES -->
-  <section style="padding: 5rem 0; background: var(--bg2); border-top: 1px solid var(--border);">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-eyebrow">Our Values</p>
-        <h2 class="section-title">What Drives <span>Us</span></h2>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8">
-              <circle cx="24" cy="24" r="18"/>
-              <polyline points="16 24 21 29 32 18" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Integrity</h3>
-          <p>We do what we say we'll do. Honest communication and ethical conduct are the foundation of every client relationship.</p>
-        </div>
-        <div class="service-card featured">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8">
-              <polygon points="24 6 30 18 44 20 34 30 36 44 24 38 12 44 14 30 4 20 18 18"/>
-            </svg>
-          </div>
-          <h3>Excellence</h3>
-          <p>We hold ourselves to the highest standards — in the quality of our work, the depth of our expertise, and the care we bring to every detail.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M8 36 C8 28 16 24 24 24 C32 24 40 28 40 36" stroke-linecap="round"/>
-              <circle cx="24" cy="16" r="8"/>
-            </svg>
-          </div>
-          <h3>Partnership</h3>
-          <p>We work alongside our clients, not just for them. Your success is our success, and we're committed for the long haul.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    var card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML =
+      '<div class="card-slider">' +
+        '<div class="card-track">' + slidesHTML + '</div>' +
+      '</div>' +
+      '<div class="project-info">' +
+        '<span class="project-tag">'+p.tag+'</span>' +
+        '<h3>'+p.title+'</h3>' +
+        '<p class="proj-desc" id="pd-'+p.id+'">'+p.desc+'</p>' +
+        '<button class="rmb" id="rmb-'+p.id+'">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>' +
+      '</div>';
 
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
-          <p>Consulting · Maintenance Services · Project Management</p>
-        </div>
-        <ul class="footer-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> O&amp;M Professionals. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    grid.appendChild(card);
 
-  <script src="js/main.js"></script>
+    // Auto slider
+    var track = card.querySelector('.card-track');
+    var slidesCount = p.imgs.length;
+    var current = 0;
+    setInterval(function(){
+      current = (current + 1) % slidesCount;
+      track.style.transform = 'translateX(-' + (current*100) + '%)';
+    },3500);
 
-  <!-- Animated Stats Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const stats = document.querySelectorAll('.stat-num');
-      stats.forEach(stat => {
-        const target = parseInt(stat.dataset.target);
-        let count = 0;
-        const isPercent = stat.dataset.target === "100";
-        const isPlus = stat.dataset.target !== "100";
-        const increment = Math.ceil(target / 100);
-
-        const interval = setInterval(() => {
-          count += increment;
-          if (count >= target) count = target;
-          stat.textContent = isPercent ? count + '%' : count + (isPlus ? '+' : '');
-          if(count >= target) clearInterval(interval);
-        }, 20);
-      });
+    // Read More toggle
+    var descEl = document.getElementById('pd-'+p.id);
+    var rmbEl = document.getElementById('rmb-'+p.id);
+    rmbEl.addEventListener('click',function(){
+      var isOpen = descEl.classList.toggle('open');
+      rmbEl.classList.toggle('open',isOpen);
+      rmbEl.innerHTML = (isOpen ? 'Read Less' : 'Read More') +
+        ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>';
     });
-  </script>
-
+  });
+});
+</script>
 </body>
 </html>
