@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O&M Professionals | Careers</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/careers.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <p class="section-eyebrow">Join Our Team</p>
+      <h1>Career <span>Opportunities</span></h1>
+      <p>We're always looking for talented, driven professionals to grow with us.</p>
+    </div>
+  </section>
+
+  <section class="careers-section">
+    <div class="container">
+      <div class="careers-filters" id="careersFilters">
+        <button class="filter-btn active" data-filter="all">All Positions</button>
+        <button class="filter-btn" data-filter="Full-Time">Full-Time</button>
+        <button class="filter-btn" data-filter="Part-Time">Part-Time</button>
+        <button class="filter-btn" data-filter="Contract">Contract</button>
+      </div>
+
+      <div class="jobs-list" id="jobsList"></div>
+
+      <div class="no-jobs" id="noJobs" style="display:none">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="10" width="36" height="32" rx="2"/>
+          <path d="M16 10V8a2 2 0 012-2h12a2 2 0 012 2v2"/>
+          <line x1="24" y1="22" x2="24" y2="32"/>
+          <line x1="19" y1="27" x2="29" y2="27"/>
+        </svg>
+        <h3>No open positions right now</h3>
+        <p>Check back soon — or reach out to introduce yourself.</p>
+        <a href="contact.html" class="btn-primary" style="margin-top:1rem">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h2 class="modal-title">Apply for <span id="modalJobTitle">Position</span></h2>
+      <p class="modal-sub">Fill in your details below and we'll be in touch.</p>
+      <form class="apply-form" id="applyForm" novalidate>
+        <input type="hidden" id="applyJobId"/>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" id="applyName" placeholder="John Smith" required/>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="applyPhone" placeholder="+1 (000) 000-0000"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" id="applyEmail" placeholder="john@example.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Cover Letter <span class="req">*</span></label>
+          <textarea id="applyCover" rows="4" placeholder="Tell us why you're a great fit..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Resume / CV <span class="file-hint">(PDF or Word)</span></label>
+          <div class="file-drop" id="applyFileDrop">
+            <input type="file" id="applyFiles" multiple accept=".pdf,.doc,.docx"/>
+            <div class="file-drop-ui">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+              <p>Drag &amp; drop or <span class="browse-link">browse</span></p>
+              <p class="file-types">PDF, Word</p>
+            </div>
+          </div>
+          <div class="file-list" id="applyFileList"></div>
+        </div>
+        <button type="submit" class="btn-primary btn-submit">
+          Submit Application
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        </button>
+        <div class="form-success" id="applySuccess">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Application submitted! We'll be in touch soon.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">O<span class="gold">&amp;</span>M <span class="gold">Professionals</span></a>
+          <p>Consulting · Maintenance Services · Project Management</p>
+        </div>
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li>
+          <li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom"><p>&copy; <span id="year"></span> O&amp;M Professionals. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/jobs.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
